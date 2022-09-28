@@ -15,6 +15,7 @@ namespace Unit02.Game
         bool _isPlaying = true;
         int _score = 0;
         int _totalScore = 0;
+        int _highScore = 0;
 
         /// <summary>
         /// Constructs a new instance of Director.
@@ -33,6 +34,7 @@ namespace Unit02.Game
         /// </summary>
         public void StartGame()
         {
+            Console.WriteLine("Let the Game begin!");
             while (_isPlaying)
             {
                 GetInputs();
@@ -68,6 +70,7 @@ namespace Unit02.Game
                 _score += die.points;
             }
             _totalScore += _score;
+
         }
 
         /// <summary>
@@ -77,6 +80,7 @@ namespace Unit02.Game
         {
             if (!_isPlaying)
             {
+                Console.WriteLine("Game Over.");
                 return;
             }
 
@@ -89,6 +93,13 @@ namespace Unit02.Game
             Console.WriteLine($"You rolled: {values}");
             Console.WriteLine($"Your score is: {_totalScore}\n");
             _isPlaying = (_score > 0);
+
+            if (_score == 0) {
+                Console.WriteLine("You did not roll a 5 or a 1.");
+                Console.WriteLine("Game over.");
+                Console.WriteLine ($"your final score is: {_totalScore}");
+                Console.WriteLine ("play again to see it you can beat it!");
+            }
         }
     }
 }
