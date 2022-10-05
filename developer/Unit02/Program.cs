@@ -6,21 +6,29 @@ namespace Unit02
     {
         static void Main(string[] args)
         {
+            //Assigns values to required variables.
             int points = 300;
             int win = 0;
-            while (win != 1) {
-                int number = 0;
-                int number2 = 0;
+            int number = 0;
+            int number2 = 0;
 
+            //Game starts.
+            while (win != 1) {
+
+                
+                //Gets first number.
                 number = nextCard();
                 Console.WriteLine($"The card is: {number}");
                
+                //Gets User inputs
                 Console.Write("higher or lower? ");
                 string choice = Console.ReadLine();
                 
+                //Gets second number.
                 number2 = nextCard();
                 Console.WriteLine($"Next card: {number2}");
 
+                //Resovles whether the user got or lost points.
                 if (choice == "higher" && number2 > number) {
                     points = correctGuess(points);
                 } else if (choice == "higher" && number2 < number) {
@@ -31,6 +39,7 @@ namespace Unit02
                     points = inccorrectGuess(points);
                 }
 
+                //Asks if User wants to play agian and/or ends the loop.
                 if (points != 0) {
                     Console.Write("Play again? (Y/N) ");
                     string choice2 = Console.ReadLine();
@@ -53,12 +62,15 @@ namespace Unit02
        
 
         }
+
+        //Function to generate card numbers.
         public static int nextCard(){
-           Random card = new Random();
-           int value = card.Next(1,13);
-           return value;
+            Random card = new Random();
+            int value = card.Next(1,13);
+            return value;
         }
 
+        //Function to add 100 points to user's score if user guessed higher or lower correctly.
         public static int correctGuess(int x) {
             int y = x + 100;
             Console.WriteLine("You called right.");
@@ -67,6 +79,7 @@ namespace Unit02
             return y;
         }
 
+        //Function to subtract 75 points to user's score if user guessed higher or lower incorrectly.
         public static int inccorrectGuess(int x){
             int y = x - 75;
             Console.WriteLine("You called wrong.");
