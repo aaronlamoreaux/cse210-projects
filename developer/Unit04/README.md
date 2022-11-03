@@ -1,5 +1,5 @@
 # Greed
-Greed is a game were you're trying to collect as many gems as possible while
+Greed is a game were you're trying to collect as many falling gems as possible while
 avoiding falling rocks.
 
 ---
