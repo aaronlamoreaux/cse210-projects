@@ -8,6 +8,19 @@ namespace Unit05.Game.Scripting
 
     // 1) Add the class declaration. Use the following class comment. Make sure you
     //    inherit from the Action class.
+    public class MoveActorsAction : Action 
+    {
+        public MoveActorsAction()
+        {
+        }
+
+         public void Execute(Cast cast, Script script) {
+            List<Actor> actors = cast.GetAllActors();
+            foreach (Actor actor in actors) {
+                actor.MoveNext();
+            }
+         }
+    }
 
     /// <summary>
     /// <para>An update action that moves all the actors.</para>
