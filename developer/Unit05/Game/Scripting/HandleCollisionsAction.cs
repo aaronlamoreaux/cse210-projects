@@ -58,13 +58,13 @@ namespace Unit05.Game.Scripting
                 foreach (Actor segment2 in segments2) {
                     if (head2.GetPosition().Equals(segment.GetPosition()) || head2.GetPosition().Equals(segment2.GetPosition())) 
                     {
-                        score.AddPoints(points);
                         _isGameOver = true;
+                        score.AddPoints(points);
                     }
                     else if (head1.GetPosition().Equals(segment2.GetPosition()) || head1.GetPosition().Equals(segment.GetPosition())) 
                     {
-                        score2.AddPoints(points);
                         _isGameOver = true;
+                        score2.AddPoints(points);
                     }
                 }
             }
